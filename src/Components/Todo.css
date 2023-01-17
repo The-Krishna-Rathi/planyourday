@@ -1,0 +1,139 @@
+.main-div {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(23, 112, 164);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.child-div {
+  height: 80vh;
+  width: 30vw;
+  background-color: rgb(23, 112, 164);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: black; */
+}
+
+.icon-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todo-icon {
+  height: 10vh;
+  width: 5vw;
+}
+
+.todo-caption {
+  margin-top: 10px;
+  color: aliceblue;
+  font-size: large;
+  font-weight: 600;
+}
+
+.add-task-div {
+  background-color: aliceblue;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  width: 25vw;
+}
+
+.task-input {
+  padding: 10px 15px;
+  font-size: 17px;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  background-color: aliceblue;
+  flex-grow: 2;
+  width: 100%;
+}
+
+input:focus {
+  outline: none;
+}
+
+.add-btn {
+  padding: 15px;
+}
+
+.add-btn:hover {
+  color: rgb(23, 112, 164);
+}
+
+.task-div {
+  width: 25vw;
+}
+
+.each-task {
+  margin: 10px 0px;
+  background-color: rgb(104, 212, 241);
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.each-task h3 {
+  margin: 0;
+  padding: 10px 15px;
+  flex-grow: 2;
+}
+
+.del-btn {
+  padding: 15px;
+}
+
+@media (max-width: 1200px) {
+  .child-div {
+    width: 40vw;
+  }
+
+  .todo-icon {
+    width: 9vw;
+  }
+
+  .add-task-div,
+  .task-div {
+    width: 40vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .child-div {
+    width: 60vw;
+  }
+
+  .todo-icon {
+    width: 14vw;
+  }
+
+  .add-task-div,
+  .task-div {
+    width: 60vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .child-div {
+    width: 80vw;
+  }
+
+  .todo-icon {
+    width: 18vw;
+  }
+
+  .todo-caption {
+    font-size: medium;
+  }
+
+  .add-task-div,
+  .task-div {
+    width: 80vw;
+  }
+}
