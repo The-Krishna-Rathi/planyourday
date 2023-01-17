@@ -1,7 +1,20 @@
 import "./Todo.css";
 import todoImg from "../Images/todo.svg";
+import { useState } from "react";
 
 const Todo = () => {
+  const [inputData, setInputData] = useState("");
+  const [items, setItems] = useState([]);
+
+  const addData = () => {
+    if (inputData === "") {
+      return;
+    } else {
+      setItems([...items, inputData]);
+      setInputData("");
+    }
+  };
+
   return (
     <>
       <div className="main-div">
@@ -16,8 +29,14 @@ const Todo = () => {
               type="text"
               placeholder="✍ Add task"
               className="task-input"
+              value={inputData}
+              onChange={(e) => setInputData(e.target.value)}
             />
-            <i className="fa-solid fa-plus add-btn" title="Add Task"></i>
+            <i
+              className="fa-solid fa-plus add-btn"
+              title="Add Task"
+              onClick={addData}
+            ></i>
           </div>
 
           <div className="task-div">
