@@ -1,10 +1,22 @@
 import "./Todo.css";
 import todoImg from "../Images/todo.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+const getLocalStorageData = () => {
+  const list = localStorage.getItem("list");
+
+  if (list) {
+    return JSON.parse(localStorage.getItem("list"));
+  } else return [];
+};
 
 const Todo = () => {
   const [inputData, setInputData] = useState("");
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(getLocalStorageData());
+
+  useEffect(() => {
+    localStorage.setItem("list", JSON.stringify(items));
+  }, [items]);
 
   const addData = () => {
     if (inputData === "") {
