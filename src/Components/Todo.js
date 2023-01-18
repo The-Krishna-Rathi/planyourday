@@ -15,6 +15,14 @@ const Todo = () => {
     }
   };
 
+  const handleDelete = (id) => {
+    const newArray = items.filter((e, ind) => {
+      return ind !== id;
+    });
+
+    setItems([...newArray]);
+  };
+
   return (
     <>
       <div className="main-div">
@@ -40,10 +48,17 @@ const Todo = () => {
           </div>
 
           <div className="task-div">
-            <div className="each-task">
-              <h3>Apple</h3>
-              <i className="fa-solid fa-trash del-btn"></i>
-            </div>
+            {items.map((ele, ind) => {
+              return (
+                <div className="each-task" key={ind}>
+                  <h3>{ele}</h3>
+                  <i
+                    className="fa-solid fa-trash del-btn"
+                    onClick={() => handleDelete(ind)}
+                  ></i>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
