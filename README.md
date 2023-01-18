@@ -1,3 +1,14 @@
+# Plan Your Day
+* It is a Todo application in react to plan your day to day activities.
+* It supports the features of Adding, Deleting and Editing the tasks done by user.
+* It is full CRUD application
+* We have used Local Storage for storing users data until the user session lasts
+* This app is puerly created in React.js
+* This app is also responsive as per various mobile sizes
+
+## Below Are some visuals of The application
+![image](https://user-images.githubusercontent.com/74900144/213267696-78f1091b-fc46-4309-ab30-4d0012c279cf.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
