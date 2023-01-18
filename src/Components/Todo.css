@@ -89,6 +89,18 @@ input:focus {
   padding: 15px;
 }
 
+.del-btn:hover {
+  color: rgb(225, 50, 50);
+}
+
+.edit-btn {
+  padding: 15px;
+}
+
+.edit-btn:hover {
+  color: green;
+}
+
 @media (max-width: 1200px) {
   .child-div {
     width: 40vw;

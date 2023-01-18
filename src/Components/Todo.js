@@ -13,6 +13,7 @@ const getLocalStorageData = () => {
 const Todo = () => {
   const [inputData, setInputData] = useState("");
   const [items, setItems] = useState(getLocalStorageData());
+  const [editID, setEditID] = useState(-1);
 
   useEffect(() => {
     localStorage.setItem("list", JSON.stringify(items));
@@ -35,6 +36,19 @@ const Todo = () => {
     setItems([...newArray]);
   };
 
+  const handelEdit = (id) => {
+    setEditID(id);
+    let data = items[id];
+    setInputData(data);
+  };
+
+  const saveEdit = () => {
+    const newData = inputData;
+    items[editID] = newData;
+    setInputData("");
+    setEditID(-1);
+  };
+
   return (
     <>
       <div className="main-div">
@@ -52,11 +66,19 @@ const Todo = () => {
               value={inputData}
               onChange={(e) => setInputData(e.target.value)}
             />
-            <i
-              className="fa-solid fa-plus add-btn"
-              title="Add Task"
-              onClick={addData}
-            ></i>
+            {editID !== -1 ? (
+              <i
+                class="fa-solid fa-pen-to-square edit-btn"
+                title="Save Edit"
+                onClick={saveEdit}
+              ></i>
+            ) : (
+              <i
+                className="fa-solid fa-plus add-btn"
+                title="Add Task"
+                onClick={addData}
+              ></i>
+            )}
           </div>
 
           <div className="task-div">
@@ -64,6 +86,10 @@ const Todo = () => {
               return (
                 <div className="each-task" key={ind}>
                   <h3>{ele}</h3>
+                  <i
+                    class="fa-solid fa-pen-to-square edit-btn"
+                    onClick={() => handelEdit(ind)}
+                  ></i>
                   <i
                     className="fa-solid fa-trash del-btn"
                     onClick={() => handleDelete(ind)}
